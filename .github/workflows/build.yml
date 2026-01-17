@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - I18n-main
+      - main
     paths:
       - '**.ts'
       - '.github/CNAME'
