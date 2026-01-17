@@ -1,1 +1,4 @@
-files: []
+files:
+  - source: .template.ts
+    translation: '%language%.ts'
+    multilingual: 1
