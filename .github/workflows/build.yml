@@ -3,7 +3,7 @@ name: Build Pages
 on:
   push:
     branches:
-      - i18n-main
+      - I18n-main
     paths:
       - '**.ts'
       - '.github/CNAME'
