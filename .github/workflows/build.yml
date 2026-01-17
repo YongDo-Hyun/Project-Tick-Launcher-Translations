@@ -6,8 +6,7 @@ on:
       - I18n-main
       - main
     paths:
-      - '**.ts'
-      - '.github/CNAME'
+      - '*'
 
 jobs:
   build:
