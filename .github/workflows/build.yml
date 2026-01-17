@@ -1,0 +1,34 @@
+name: Build Pages
+
+on:
+  push:
+    branches:
+      - i18n-main
+    paths:
+      - '**.ts'
+      - '.github/CNAME'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v21
+
+      - name: Build translations
+        run: |
+          nix develop . -c ./release.sh
+
+      - name: Move directory
+        run: |
+          mv build _site
+          cp .github/CNAME _site/CNAME
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          publish_dir: ./_site
+          github_token: ${{ secrets.GITHUB_TOKEN }}
